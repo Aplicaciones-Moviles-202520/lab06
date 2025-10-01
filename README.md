@@ -51,30 +51,30 @@ Para este laboratorio utilizaremos **t2.medium** que ofrece un buen balance entr
 
 Antes de comenzar, asegúrate de tener:
 
-1. Acceso a AWS Academy Learner Lab (proporcionado por el instructor)
-2. Navegador web actualizado
+1. Acceso a AWS Academy Learner Lab
+2. Navegador web
 3. Conocimientos básicos de línea de comandos de Linux
 4. Editor de texto para crear archivos HTML
 
 ## 1. Acceso a AWS Academy
 
-AWS Academy proporciona acceso gratuito a AWS para fines educativos. AWSAcademy funciona sobre la plataforma Canvas. Tenemos que considerar que Canvas es un proveedor de LMS (Learning Management System) que sirve para múltiples instituciones educativas.
+AWS Academy proporciona acceso gratuito a AWS para fines educativos. AWS Academy funciona sobre la plataforma Canvas. Canvas es un proveedor de LMS (Learning Management System) que sirve a múltiples instituciones educativas.
 
 ### Paso 1.1: Ingreso a AWS Academy
 
-1. Revisamos el correo electrónico que fue recibido como invitación a AWS Academy
-2. Al ingresar nos preguntará si tenemos una cuenta en Canvas. La respuesta es NO ya que las credenciales para Canvas de la Universidad son para acceso a esta institución, y no para AWS Academy
-3. Completamos el proceso de creación de cuenta
-4. Busca el curso "AWS Academy Learner Lab" y hacemos click en el curso para acceder
+1. Revisa el correo electrónico que recibiste como invitación a AWS Academy
+2. Al ingresar te preguntará si tienes una cuenta en Canvas. La respuesta es NO, ya que las credenciales para Canvas de la Universidad son para acceso a esta institución, y no para AWS Academy
+3. Completa el proceso de creación de cuenta
+4. Busca el curso "AWS Academy Learner Lab" y haz clic en el curso para acceder
 
 ### Paso 1.2: Inicio del Learner Lab
 
-1. Una vez dentro del curso, nos dirigimos a la sección "Modules" y luego "Launch AWS Academy Learner Lab"
+1. Una vez dentro del curso, dirígete a la sección "Modules" y luego "Launch AWS Academy Learner Lab"
 2. Haz clic en "Start Lab" (puede tomar unos minutos en inicializar, especialmente la primera vez)
 3. Espera a que el indicador cambie a verde
 4. Haz clic en "AWS" para acceder a la consola de AWS
 
-**⚠️ Importante:** La sesión de learners lab dura 4 horas, luego de lo cual los servicios se apagan automáticamente. El tiempo de funcionamiento se puede alargar haciendo click en start lab nuevamente, lo que extenderá por 4 horas más la sesión.
+**⚠️ Importante:** La sesión de Learner Lab dura 4 horas, después de las cuales los servicios se apagan automáticamente. El tiempo de funcionamiento se puede extender haciendo clic en "Start Lab" nuevamente, lo que prolongará la sesión por 4 horas adicionales.
 
 ### Paso 1.3: Familiarización con la consola de AWS
 
@@ -106,9 +106,9 @@ Las claves SSH son necesarias para conectarse de forma segura a las instancias E
     - **Key pair type**: RSA
     - **Private key file format**: .pem
 7. Haz clic en "Create key pair"
-8. **Importante**: Identifica donde se descargó el archivo .pem
+8. **Importante**: Identifica dónde se descargó el archivo .pem
 
-**⚠️ Nota de seguridad**: Mantén este archivo seguro. No podrás descargarlo nuevamente y lo necesitarás para conectarte a tu instancia
+**⚠️ Nota de seguridad**: Mantén este archivo seguro. No podrás descargarlo nuevamente y lo necesitarás para conectarte a tu instancia.
 
 ### Paso 2.2: Lanzar una nueva instancia con Ubuntu 24.04
 
@@ -123,29 +123,29 @@ Las claves SSH son necesarias para conectarse de forma segura a las instancias E
 #### Application and OS Image (AMI)
 
 -   Selecciona Ubuntu como sistema operativo
--   En la pestaña "Community AMIs" selecciona "Ubuntu Server 24.04 LTS" (la versión más reciente disponible)
+-   En la pestaña "Quick Start", selecciona "Ubuntu" y luego "Ubuntu Server 24.04 LTS" (la versión más reciente disponible, estará seleccionada por omisión)
 -   Esta es la distribución Ubuntu 24.04 LTS oficial
 
-#### Tipo de instancia
+#### Instance type
 
 -   Selecciona "t2.medium"
 -   Esto te dará 2 vCPUs y 4 GB de RAM, suficiente para un servidor web básico
 
-#### Par de claves (Key pair)
+#### Key pair
 
 -   **Key pair name**: Selecciona "lab06-keypair" (la clave que creaste en el paso anterior)
 
-#### Configuración de red
+#### Network settings
 
 -   **VPC**: Deja la VPC por omisión
--   **Subred**: Deja la subred por omisión
+-   **Subnet**: Deja la subnet por omisión
 -   **Auto-assign public IP**: Enable (Habilitar)
 -   **Firewall (security groups)**: Se debe dejar la configuración por omisión
 
-#### Configurar almacenamiento
+#### Configure storage
 
--   **Tamaño**: 8 GB (por omisión)
--   **Tipo de volumen**: gp3 (por omisión)
+-   **Size**: 8 GB (por omisión)
+-   **Volume type**: gp3 (por omisión)
 
 ### Paso 2.3: Lanzar la instancia
 
@@ -160,16 +160,16 @@ Las claves SSH son necesarias para conectarse de forma segura a las instancias E
 
 Una IP elástica garantiza que tu servidor mantenga la misma dirección IP pública incluso si se reinicia.
 
-1. En el panel izquierdo del dashboard EC2, busca "Network & Security" &rarr; "Elastic IPs"
+1. En el panel izquierdo del dashboard EC2, busca "Network & Security" → "Elastic IPs"
 2. Haz clic en "Allocate Elastic IP address"
 3. Deja todas las configuraciones por omisión
 4. Haz clic en "Allocate"
 5. Selecciona la IP elástica recién creada
-6. Haz clic en "Actions" &rarr; "Associate Elastic IP address"
+6. Haz clic en "Actions" → "Associate Elastic IP address"
 7. Configura:
     - **Resource type**: Instance
     - **Instance**: Selecciona tu instancia "lab06-ubuntu-server"
-    - **Private IP address**: No editar
+    - **Private IP address**: No editar (se completa automáticamente)
 8. Haz clic en "Associate"
 9. Identifica la dirección IP elástica asignada
 10. Dirígete a "Instances" y selecciona tu instancia para verificar que la IP elástica está asociada correctamente
@@ -187,12 +187,12 @@ AWS proporciona una forma fácil de conectarse a instancias Ubuntu sin configura
     - **Username**: ubuntu (por omisión para Ubuntu)
 4. Haz clic en "Connect"
 5. Se abrirá una nueva ventana con una terminal en el navegador
-6. Ejecuta algunos comandos básicos de linux:
+6. Ejecuta algunos comandos básicos de Linux:
 
 ```bash
-   ls -la
-   pwd
-   whoami
+ls -la
+pwd
+whoami
 ```
 
 ### Paso 2.6: Conectar usando tu clave SSH local
@@ -201,15 +201,9 @@ Ahora aprenderás a conectarte desde tu computadora local usando la clave SSH. E
 
 #### En Windows
 
--   **PowerShell o CMD**: No es necesario cambiar permisos con `chmod`, ya que este comando no existe en CMD ni PowerShell. Solo asegúrate de saber la ruta donde descargaste la clave `.pem`.
--   **WSL o Git Bash**: Aquí sí puedes usar `chmod` como en Linux.
-
 ```bash
-# (Solo en WSL o Git Bash) Cambiar permisos de la clave
-chmod 400 ruta\a\lab06-keypair.pem
-
 # Conectarse a la instancia (reemplaza TU-IP-ELASTICA por la IP real)
-ssh -i ruta\a\lab06-keypair.pem ubuntu@TU-IP-ELASTICA
+ssh -i ruta/a/lab06-keypair.pem ubuntu@TU-IP-ELASTICA
 ```
 
 #### En Linux o macOS
@@ -266,8 +260,8 @@ Esto es normal y esperado porque no hemos abierto el puerto 80 en el grupo de se
 
 Ahora abriremos el puerto 80 para permitir tráfico HTTP:
 
-1. Ve al dashboard de EC2 y selecciona tu máquina virtual
-2. En el panel inferior que se despliega selecciona la pestaña "Security"
+1. Ve al dashboard de EC2 y selecciona tu instancia
+2. En el panel inferior que se despliega, selecciona la pestaña "Security"
 3. Haz clic en el enlace del "Security Group"
 4. Ve a la pestaña "Inbound rules" (Reglas de entrada)
 5. Haz clic en "Edit inbound rules" (Editar reglas de entrada)
@@ -318,16 +312,16 @@ Eliminar (terminar) una instancia borra la máquina virtual de forma permanente.
 -   **Detener**: Puedes volver a iniciar la instancia y conservar los datos.
 -   **Eliminar**: La instancia y su almacenamiento se eliminan permanentemente (a menos que el volumen EBS esté configurado para conservarse).
 
-### Paso 2.13: Liberar la dirección IP elástica
+### Paso 2.12: Liberar la dirección IP elástica
 
 Finalmente, libera la IP elástica para evitar cargos innecesarios:
 
-1. Ve a "EC2" &rarr; "Network & Security" &rarr; "Elastic IPs"
+1. Ve a "EC2" → "Network & Security" → "Elastic IPs"
 2. Selecciona tu dirección IP elástica
-3. Haz clic en "Actions" &rarr; "Release Elastic IP addresses"
+3. Haz clic en "Actions" → "Release Elastic IP addresses"
 4. Confirma la liberación
 
-**⚠️ Importante**: Las IP elásticas no utilizadas (no asociadas a una instancia running) generan cargos. Revisa liberarlas cuando no las necesites
+**⚠️ Importante**: Las IP elásticas no utilizadas (no asociadas a una instancia en ejecución) generan cargos. Asegúrate de liberarlas cuando no las necesites.
 
 ## 4. Creación de sitio web estático con S3
 
@@ -344,8 +338,8 @@ Finalmente, libera la IP elástica para evitar cargos innecesarios:
 
 #### General configuration
 
--   **Bucket type**: Dejar en "General Purpose"
--   **Bucket name**: "[TU-RUT]-icc4203" (reemplaza [TU-RUT] con tu RUT sin puntos ni guión. Toda letra en minúscula)
+-   **Bucket type**: Dejar en "General purpose"
+-   **Bucket name**: "[TU-RUT]-icc4203" (reemplaza [TU-RUT] con tu RUT sin puntos ni guión, usando solo letras minúsculas y números)
 
 #### Object ownership
 
@@ -443,19 +437,19 @@ Para que el sitio web funcione correctamente, necesitas configurar una política
 5. Haz clic en "Save changes"
 6. Ahora te puedes dirigir a la URL del endpoint del sitio web que anotaste anteriormente para ver tu página web estática en acción.
 
-### 4.6: Limpieza de recursos
+### Paso 4.6: Limpieza de recursos
 
 Para evitar cargos innecesarios, elimina el bucket S3 y su contenido cuando ya no lo necesites:
 
 1. Ve a la consola de S3
 2. Selecciona tu bucket
-3. Haz clic en "Delete bucket" (Eliminar bucket)
-4. Confirma escribiendo el nombre del bucket y haz clic en "Confirm"
-5. Dado que tu bucket tiene un archivo, no dejará eliminar el bucket. Para vaciar el bucket:
-    - Selecciona el bucket en la lista de buckets
-    - Haz click en empty (vaciar)
-    - Confirma escribiendo el nombre del bucket y haz clic en "Confirm"
-6. Luego de vaciar el bucket, repite los pasos 3 y 4 para eliminar el bucket exitosamente
+3. Haz clic en "Empty" (Vaciar bucket) primero
+4. Confirma escribiendo "permanently delete" y haz clic en "Empty"
+5. Una vez que el bucket esté vacío, selecciónalo nuevamente
+6. Haz clic en "Delete" (Eliminar bucket)
+7. Confirma escribiendo el nombre del bucket y haz clic en "Delete bucket"
+
+**Nota**: Los buckets deben estar vacíos antes de poder eliminarlos. AWS no permite eliminar buckets que contengan objetos.
 
 ## Conclusión
 
